@@ -8,59 +8,6 @@
 
 import Foundation
 
-public typealias ValueBlock<Value> = (Value) -> Void
-
-public typealias ErrorBlock = (Error) -> Void
-
-public typealias VoidBlock = () -> Void
-
-public protocol IPromise: class {
-    associatedtype Value
-
-    func fulfill(_ value: Value)
-    func reject(_ error: Error)
-
-    /// FlatMap
-    @discardableResult
-    func then<NewValue>(_ transform: @escaping (Value) throws -> Promise<NewValue>) -> Promise<NewValue>
-
-    /// Map
-    @discardableResult
-    func then<NewValue>(_ transform: @escaping (Value) throws -> NewValue) -> Promise<NewValue>
-
-    // MARK: - Passthrough
-
-    /// Will be executed on Main Thread
-    @discardableResult
-    func finalize(_ onFulfilled: @escaping (Value) -> Void) -> Promise<Value>
-
-    /// Will be executed on service queue
-    @discardableResult
-    func then(_ onFulfilled: @escaping (Value) -> Void) -> Promise<Value>
-
-    @discardableResult
-    func then(_ onFulfilled: @escaping (Value) -> Void, _ onRejected: @escaping (Error) -> Void) -> Promise<Value>
-
-    /// For custom exec context
-    @discardableResult
-    func then(worker: ExecutionContext, _ onFulfilled: @escaping (Value) -> Void) -> Promise<Value>
-
-    @discardableResult
-    func then(worker: ExecutionContext, _ onFulfilled: @escaping (Value) -> Void, _ onRejected: @escaping (Error) -> Void) -> Promise<Value>
-
-    // MARK: - Members
-
-    var isPending: Bool { get }
-
-    var isFulfilled: Bool { get }
-
-    var isRejected: Bool { get }
-
-    var value: Value? { get }
-
-    var error: Error? { get }
-}
-
 final class PromiseTester {
     func testPromise() {
         let p = Promise<Int>()
