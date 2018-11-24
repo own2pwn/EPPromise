@@ -7,59 +7,8 @@
 //
 
 import Foundation
-
-public typealias ValueBlock<Value> = (Value) -> Void
-
-public typealias ErrorBlock = (Error) -> Void
-
-public typealias VoidBlock = () -> Void
-
-public protocol IPromise: class {
-    associatedtype Value
-
-    func fulfill(_ value: Value)
-    func reject(_ error: Error)
-
-    /// FlatMap
-    @discardableResult
-    func then<NewValue>(_ transform: @escaping (Value) throws -> Promise<NewValue>) -> Promise<NewValue>
-
-    /// Map
-    @discardableResult
-    func then<NewValue>(_ transform: @escaping (Value) throws -> NewValue) -> Promise<NewValue>
-
-    // MARK: - Passthrough
-
-    /// Will be executed on Main Thread
-    @discardableResult
-    func finalize(_ onFulfilled: @escaping (Value) -> Void) -> Promise<Value>
-
-    /// Will be executed on service queue
-    @discardableResult
-    func then(_ onFulfilled: @escaping (Value) -> Void) -> Promise<Value>
-
-    @discardableResult
-    func then(_ onFulfilled: @escaping (Value) -> Void, _ onRejected: @escaping (Error) -> Void) -> Promise<Value>
-
-    /// For custom exec context
-    @discardableResult
-    func then(worker: ExecutionContext, _ onFulfilled: @escaping (Value) -> Void) -> Promise<Value>
-
-    @discardableResult
-    func then(worker: ExecutionContext, _ onFulfilled: @escaping (Value) -> Void, _ onRejected: @escaping (Error) -> Void) -> Promise<Value>
-
-    // MARK: - Members
-
-    var isPending: Bool { get }
-
-    var isFulfilled: Bool { get }
-
-    var isRejected: Bool { get }
-
-    var value: Value? { get }
-
-    var error: Error? { get }
-}
+import MultiPromise
+import Promise
 
 final class PromiseTester {
     func testPromise() {
@@ -71,10 +20,43 @@ final class PromiseTester {
             print("param here: \(value)")
             print("got \(value) on main ?: \(Thread.isMainThread)")
         }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            print("started!")
+            p.fulfill(77)
+        }
+    }
+
+    func testMultiPromise() {
+        let p = MultiPromise<Int>().finalize { v in
+            let t = type(of: v)
+            print("mp: \(v) | \(t)")
+        }
+        p.then { v in
+            let t = type(of: v)
+            print("mp[2]: \(v) | \(t)")
+        }
+
+        p.fulfill(2)
+        p.fulfill(3)
+
+        p.then { v in
+            return "str: \(v)"
+        }
+
+        p.fulfill(44)
     }
 
     @discardableResult
     private func testPromiseFulfill<T>(_ promise: Promise<T>, with value: T) -> Promise<T> {
+        sleep(2)
+        promise.fulfill(value)
+
+        return promise
+    }
+
+    @discardableResult
+    private func testPromiseFulfill<T>(_ promise: MultiPromise<T>, with value: T) -> MultiPromise<T> {
         sleep(2)
         promise.fulfill(value)
 
@@ -102,6 +84,6 @@ final class PromiseTester {
 }
 
 let tester = PromiseTester()
-tester.testPromise()
+tester.testMultiPromise()
 
 RunLoop.main.run()

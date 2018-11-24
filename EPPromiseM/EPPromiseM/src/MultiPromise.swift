@@ -1,5 +1,5 @@
 //
-//  Promise.swift
+//  MultiPromise.swift
 //  EPPromiseM
 //
 //  Created by Evgeniy on 24/11/2018.
@@ -11,7 +11,9 @@ import Foundation
     import Dispatch
 #endif
 
-public final class Promise<Value> {
+/// Could be fulfilled multiple times with different values
+/// Calls then chain as fulfills
+public final class MultiPromise<Value> {
     // MARK: - Members
 
     private let lockQueue = DispatchQueue(label: "own2pwn.core.promise-lock")
@@ -36,8 +38,8 @@ public final class Promise<Value> {
 
     /// FlatMap
     @discardableResult
-    public func then<NewValue>(_ transform: @escaping (Value) throws -> Promise<NewValue>) -> Promise<NewValue> {
-        return Promise<NewValue>(queue: execWorker) { filler, rejector in
+    public func then<NewValue>(_ transform: @escaping (Value) throws -> MultiPromise<NewValue>) -> MultiPromise<NewValue> {
+        return MultiPromise<NewValue>(queue: execWorker) { filler, rejector in
             let onFulfill = { (value: Value) -> Void in
                 do {
                     try transform(value).then(worker: self.execWorker, filler, rejector)
@@ -52,42 +54,42 @@ public final class Promise<Value> {
 
     /// Map
     @discardableResult
-    public func then<NewValue>(_ transform: @escaping (Value) throws -> NewValue) -> Promise<NewValue> {
-        return then { (value: Value) -> Promise<NewValue> in
+    public func then<NewValue>(_ transform: @escaping (Value) throws -> NewValue) -> MultiPromise<NewValue> {
+        return then { (value: Value) -> MultiPromise<NewValue> in
             do {
-                return Promise<NewValue>(value: try transform(value))
+                return MultiPromise<NewValue>(value: try transform(value))
             } catch {
-                return Promise<NewValue>(error: error)
+                return MultiPromise<NewValue>(error: error)
             }
         }
     }
 
     @discardableResult
-    public func then(_ onFulfilled: @escaping (Value) -> Void) -> Promise<Value> {
+    public func then(_ onFulfilled: @escaping (Value) -> Void) -> MultiPromise<Value> {
         return then(onFulfilled, { _ in })
     }
 
     @discardableResult
-    public func then(_ onFulfilled: @escaping (Value) -> Void, _ onRejected: @escaping (Error) -> Void) -> Promise<Value> {
+    public func then(_ onFulfilled: @escaping (Value) -> Void, _ onRejected: @escaping (Error) -> Void) -> MultiPromise<Value> {
         addCallback(for: execWorker, onFulfilled: onFulfilled, onRejected: onRejected)
 
         return self
     }
 
     @discardableResult
-    public func then(worker: ExecutionContext, _ onFulfilled: @escaping (Value) -> Void) -> Promise<Value> {
+    public func then(worker: ExecutionContext, _ onFulfilled: @escaping (Value) -> Void) -> MultiPromise<Value> {
         return then(worker: worker, onFulfilled, { _ in })
     }
 
     @discardableResult
-    public func then(worker: ExecutionContext, _ onFulfilled: @escaping (Value) -> Void, _ onRejected: @escaping (Error) -> Void) -> Promise<Value> {
+    public func then(worker: ExecutionContext, _ onFulfilled: @escaping (Value) -> Void, _ onRejected: @escaping (Error) -> Void) -> MultiPromise<Value> {
         addCallback(for: worker, onFulfilled: onFulfilled, onRejected: onRejected)
 
         return self
     }
 
     @discardableResult
-    public func finalize(_ onFulfilled: @escaping (Value) -> Void) -> Promise<Value> {
+    public func finalize(_ onFulfilled: @escaping (Value) -> Void) -> MultiPromise<Value> {
         let worker = DispatchQueue.main
         addCallback(for: worker, onFulfilled: onFulfilled, onRejected: { _ in })
 
@@ -123,7 +125,6 @@ public final class Promise<Value> {
     // MARK: - Helpers
 
     private func updateState(_ newState: State<Value>) {
-        guard currentState.isPending else { return }
         lockQueue.sync {
             state = newState
         }
@@ -149,10 +150,6 @@ public final class Promise<Value> {
     }
 
     private func execCallbacks(for state: State<Value>) {
-        defer {
-            callbacks.removeAll()
-        }
-
         switch state {
         case let .fulfilled(value):
             callbacks.forEach { $0.callFulfill(value) }
