@@ -8,18 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		DE1D57E621A93ED200069FC9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1D57E521A93ED200069FC9 /* main.swift */; };
-		DE25335821A989FD00589F03 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335721A989FD00589F03 /* Promise.swift */; };
-		DE25335C21A98A2400589F03 /* Promise+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335B21A98A2400589F03 /* Promise+Context.swift */; };
-		DE25335E21A98A7100589F03 /* Promise+Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335D21A98A7100589F03 /* Promise+Callback.swift */; };
-		DE25336021A98A8200589F03 /* Promise+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335F21A98A8200589F03 /* Promise+State.swift */; };
 		DE25336921A98B2300589F03 /* PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25336821A98B2300589F03 /* PromiseTests.swift */; };
-		DE25337721A98B6F00589F03 /* PromiseLib.h in Headers */ = {isa = PBXBuildFile; fileRef = DE25337521A98B6F00589F03 /* PromiseLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DE25337B21A98B7A00589F03 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335721A989FD00589F03 /* Promise.swift */; };
-		DE25337C21A98B7D00589F03 /* Promise+Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335D21A98A7100589F03 /* Promise+Callback.swift */; };
-		DE25337D21A98B7D00589F03 /* Promise+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335F21A98A8200589F03 /* Promise+State.swift */; };
-		DE25337E21A98B7D00589F03 /* Promise+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335B21A98A2400589F03 /* Promise+Context.swift */; };
-		DE25338021A98CD000589F03 /* Promise+InvalidatableQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25337F21A98CD000589F03 /* Promise+InvalidatableQueue.swift */; };
-		DE25338121A98CD000589F03 /* Promise+InvalidatableQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25337F21A98CD000589F03 /* Promise+InvalidatableQueue.swift */; };
+		DE25338B21A98F1B00589F03 /* MultiPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = DE25338921A98F1B00589F03 /* MultiPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE25339821A98F2600589F03 /* Promise.h in Headers */ = {isa = PBXBuildFile; fileRef = DE25339621A98F2600589F03 /* Promise.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE25339C21A98F3600589F03 /* Promise+Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335D21A98A7100589F03 /* Promise+Callback.swift */; };
+		DE25339D21A98F3600589F03 /* Promise+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335F21A98A8200589F03 /* Promise+State.swift */; };
+		DE25339E21A98F3600589F03 /* Promise+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335B21A98A2400589F03 /* Promise+Context.swift */; };
+		DE25339F21A98F3600589F03 /* Promise+InvalidatableQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25337F21A98CD000589F03 /* Promise+InvalidatableQueue.swift */; };
+		DE2533A021A98F3600589F03 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335721A989FD00589F03 /* Promise.swift */; };
+		DE2533A421A98F5200589F03 /* MultiPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2533A221A98F5200589F03 /* MultiPromise.swift */; };
+		DE2533A621A98F6400589F03 /* MultiPromise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE25338721A98F1B00589F03 /* MultiPromise.framework */; };
+		DE2533A721A98F6400589F03 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE25339421A98F2600589F03 /* Promise.framework */; };
+		DE2533A821A98F8400589F03 /* Promise+Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335D21A98A7100589F03 /* Promise+Callback.swift */; };
+		DE2533A921A98F8500589F03 /* Promise+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335F21A98A8200589F03 /* Promise+State.swift */; };
+		DE2533AA21A98F8700589F03 /* Promise+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25335B21A98A2400589F03 /* Promise+Context.swift */; };
+		DE2533AB21A98F8A00589F03 /* Promise+InvalidatableQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE25337F21A98CD000589F03 /* Promise+InvalidatableQueue.swift */; };
+		DE2533AD21A98FA000589F03 /* Promise+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2533AC21A98FA000589F03 /* Promise+Type.swift */; };
+		DE2533AE21A98FA000589F03 /* Promise+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2533AC21A98FA000589F03 /* Promise+Type.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,10 +49,17 @@
 		DE25336621A98B2300589F03 /* PromiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PromiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE25336821A98B2300589F03 /* PromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseTests.swift; sourceTree = "<group>"; };
 		DE25336A21A98B2300589F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE25337321A98B6F00589F03 /* PromiseLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PromiseLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE25337521A98B6F00589F03 /* PromiseLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PromiseLib.h; sourceTree = "<group>"; };
 		DE25337621A98B6F00589F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE25337F21A98CD000589F03 /* Promise+InvalidatableQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+InvalidatableQueue.swift"; sourceTree = "<group>"; };
+		DE25338721A98F1B00589F03 /* MultiPromise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiPromise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE25338921A98F1B00589F03 /* MultiPromise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiPromise.h; sourceTree = "<group>"; };
+		DE25338A21A98F1B00589F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE25339421A98F2600589F03 /* Promise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Promise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE25339621A98F2600589F03 /* Promise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
+		DE25339721A98F2600589F03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE2533A221A98F5200589F03 /* MultiPromise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPromise.swift; sourceTree = "<group>"; };
+		DE2533AC21A98FA000589F03 /* Promise+Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+Type.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE2533A621A98F6400589F03 /* MultiPromise.framework in Frameworks */,
+				DE2533A721A98F6400589F03 /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +79,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE25337021A98B6F00589F03 /* Frameworks */ = {
+		DE25338421A98F1B00589F03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE25339121A98F2600589F03 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,7 +102,10 @@
 				DE1D57E421A93ED200069FC9 /* EPPromiseM */,
 				DE25336721A98B2300589F03 /* PromiseTests */,
 				DE25337421A98B6F00589F03 /* PromiseLib */,
+				DE25338821A98F1B00589F03 /* MultiPromise */,
+				DE25339521A98F2600589F03 /* Promise */,
 				DE1D57E321A93ED200069FC9 /* Products */,
+				DE2533A521A98F6400589F03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,7 +114,8 @@
 			children = (
 				DE1D57E221A93ED200069FC9 /* EPPromiseM */,
 				DE25336621A98B2300589F03 /* PromiseTests.xctest */,
-				DE25337321A98B6F00589F03 /* PromiseLib.framework */,
+				DE25338721A98F1B00589F03 /* MultiPromise.framework */,
+				DE25339421A98F2600589F03 /* Promise.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +134,7 @@
 			children = (
 				DE25336121A98A8500589F03 /* Helpers */,
 				DE25335721A989FD00589F03 /* Promise.swift */,
+				DE2533A221A98F5200589F03 /* MultiPromise.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -116,6 +142,7 @@
 		DE25336121A98A8500589F03 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DE2533AC21A98FA000589F03 /* Promise+Type.swift */,
 				DE25335D21A98A7100589F03 /* Promise+Callback.swift */,
 				DE25335F21A98A8200589F03 /* Promise+State.swift */,
 				DE25335B21A98A2400589F03 /* Promise+Context.swift */,
@@ -142,14 +169,47 @@
 			path = PromiseLib;
 			sourceTree = "<group>";
 		};
+		DE25338821A98F1B00589F03 /* MultiPromise */ = {
+			isa = PBXGroup;
+			children = (
+				DE25338921A98F1B00589F03 /* MultiPromise.h */,
+				DE25338A21A98F1B00589F03 /* Info.plist */,
+			);
+			path = MultiPromise;
+			sourceTree = "<group>";
+		};
+		DE25339521A98F2600589F03 /* Promise */ = {
+			isa = PBXGroup;
+			children = (
+				DE25339621A98F2600589F03 /* Promise.h */,
+				DE25339721A98F2600589F03 /* Info.plist */,
+			);
+			path = Promise;
+			sourceTree = "<group>";
+		};
+		DE2533A521A98F6400589F03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		DE25336E21A98B6F00589F03 /* Headers */ = {
+		DE25338221A98F1B00589F03 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE25337721A98B6F00589F03 /* PromiseLib.h in Headers */,
+				DE25338B21A98F1B00589F03 /* MultiPromise.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE25338F21A98F2600589F03 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE25339821A98F2600589F03 /* Promise.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,22 +250,40 @@
 			productReference = DE25336621A98B2300589F03 /* PromiseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DE25337221A98B6F00589F03 /* PromiseLib */ = {
+		DE25338621A98F1B00589F03 /* MultiPromise */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE25337821A98B6F00589F03 /* Build configuration list for PBXNativeTarget "PromiseLib" */;
+			buildConfigurationList = DE25338E21A98F1B00589F03 /* Build configuration list for PBXNativeTarget "MultiPromise" */;
 			buildPhases = (
-				DE25336E21A98B6F00589F03 /* Headers */,
-				DE25336F21A98B6F00589F03 /* Sources */,
-				DE25337021A98B6F00589F03 /* Frameworks */,
-				DE25337121A98B6F00589F03 /* Resources */,
+				DE25338221A98F1B00589F03 /* Headers */,
+				DE25338321A98F1B00589F03 /* Sources */,
+				DE25338421A98F1B00589F03 /* Frameworks */,
+				DE25338521A98F1B00589F03 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = PromiseLib;
-			productName = PromiseLib;
-			productReference = DE25337321A98B6F00589F03 /* PromiseLib.framework */;
+			name = MultiPromise;
+			productName = MultiPromise;
+			productReference = DE25338721A98F1B00589F03 /* MultiPromise.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DE25339321A98F2600589F03 /* Promise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE25339921A98F2600589F03 /* Build configuration list for PBXNativeTarget "Promise" */;
+			buildPhases = (
+				DE25338F21A98F2600589F03 /* Headers */,
+				DE25339021A98F2600589F03 /* Sources */,
+				DE25339121A98F2600589F03 /* Frameworks */,
+				DE25339221A98F2600589F03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Promise;
+			productName = Promise;
+			productReference = DE25339421A98F2600589F03 /* Promise.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -224,7 +302,11 @@
 					DE25336521A98B2300589F03 = {
 						CreatedOnToolsVersion = 10.1;
 					};
-					DE25337221A98B6F00589F03 = {
+					DE25338621A98F1B00589F03 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					DE25339321A98F2600589F03 = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -243,7 +325,8 @@
 			targets = (
 				DE1D57E121A93ED200069FC9 /* EPPromiseM */,
 				DE25336521A98B2300589F03 /* PromiseTests */,
-				DE25337221A98B6F00589F03 /* PromiseLib */,
+				DE25339321A98F2600589F03 /* Promise */,
+				DE25338621A98F1B00589F03 /* MultiPromise */,
 			);
 		};
 /* End PBXProject section */
@@ -256,7 +339,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE25337121A98B6F00589F03 /* Resources */ = {
+		DE25338521A98F1B00589F03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE25339221A98F2600589F03 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,12 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE25336021A98A8200589F03 /* Promise+State.swift in Sources */,
-				DE25335E21A98A7100589F03 /* Promise+Callback.swift in Sources */,
-				DE25338021A98CD000589F03 /* Promise+InvalidatableQueue.swift in Sources */,
 				DE1D57E621A93ED200069FC9 /* main.swift in Sources */,
-				DE25335C21A98A2400589F03 /* Promise+Context.swift in Sources */,
-				DE25335821A989FD00589F03 /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,15 +372,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE25336F21A98B6F00589F03 /* Sources */ = {
+		DE25338321A98F1B00589F03 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE25338121A98CD000589F03 /* Promise+InvalidatableQueue.swift in Sources */,
-				DE25337C21A98B7D00589F03 /* Promise+Callback.swift in Sources */,
-				DE25337B21A98B7A00589F03 /* Promise.swift in Sources */,
-				DE25337D21A98B7D00589F03 /* Promise+State.swift in Sources */,
-				DE25337E21A98B7D00589F03 /* Promise+Context.swift in Sources */,
+				DE2533AB21A98F8A00589F03 /* Promise+InvalidatableQueue.swift in Sources */,
+				DE2533A821A98F8400589F03 /* Promise+Callback.swift in Sources */,
+				DE2533A421A98F5200589F03 /* MultiPromise.swift in Sources */,
+				DE2533AE21A98FA000589F03 /* Promise+Type.swift in Sources */,
+				DE2533A921A98F8500589F03 /* Promise+State.swift in Sources */,
+				DE2533AA21A98F8700589F03 /* Promise+Context.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE25339021A98F2600589F03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE25339F21A98F3600589F03 /* Promise+InvalidatableQueue.swift in Sources */,
+				DE25339C21A98F3600589F03 /* Promise+Callback.swift in Sources */,
+				DE2533A021A98F3600589F03 /* Promise.swift in Sources */,
+				DE2533AD21A98FA000589F03 /* Promise+Type.swift in Sources */,
+				DE25339E21A98F3600589F03 /* Promise+Context.swift in Sources */,
+				DE25339D21A98F3600589F03 /* Promise+State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +572,70 @@
 			};
 			name = Release;
 		};
-		DE25337921A98B6F00589F03 /* Debug */ = {
+		DE25338C21A98F1B00589F03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VD97XKT54M;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = MultiPromise/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = own2pwn.pp.MultiPromise;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DE25338D21A98F1B00589F03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VD97XKT54M;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = MultiPromise/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = own2pwn.pp.MultiPromise;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DE25339A21A98F2600589F03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -486,14 +648,15 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = PromiseLib/Info.plist;
+				INFOPLIST_FILE = Promise/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = own2pwn.pp.PromiseLib;
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = own2pwn.pp.Promise;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -502,7 +665,7 @@
 			};
 			name = Debug;
 		};
-		DE25337A21A98B6F00589F03 /* Release */ = {
+		DE25339B21A98F2600589F03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
@@ -515,14 +678,15 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = PromiseLib/Info.plist;
+				INFOPLIST_FILE = Promise/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = own2pwn.pp.PromiseLib;
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = own2pwn.pp.Promise;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -561,11 +725,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE25337821A98B6F00589F03 /* Build configuration list for PBXNativeTarget "PromiseLib" */ = {
+		DE25338E21A98F1B00589F03 /* Build configuration list for PBXNativeTarget "MultiPromise" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DE25337921A98B6F00589F03 /* Debug */,
-				DE25337A21A98B6F00589F03 /* Release */,
+				DE25338C21A98F1B00589F03 /* Debug */,
+				DE25338D21A98F1B00589F03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE25339921A98F2600589F03 /* Build configuration list for PBXNativeTarget "Promise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE25339A21A98F2600589F03 /* Debug */,
+				DE25339B21A98F2600589F03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
